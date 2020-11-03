@@ -1,0 +1,181 @@
+body {
+    background: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.showcase::after {
+    /*Last child of selected element*/
+    content: ' ';
+    height: 100vh;
+    width: 100%;
+    background-image: url(whiteDog.jpg);
+    /*scales image as large as possible without stretching the image*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* inline elements display in the inline direction,
+     that is in the direction words are displayed in a 
+     sentence according to the Writing Mode of the document.
+     Margin and padding can't be applied. 
+     Block elements display one after the other,
+     as paragraphs do in the Writing Mode of that document.
+     inline-block allows us to put margin and padding to the elements
+     */
+    display: block;
+    filter: blur(7px);
+    -webkit-filter: blur(7px);
+    /*control how fast the changes occur*/
+    transition: all 1000ms;
+
+}
+
+/*can't apply hover to pseudo element directly*/
+/* 
+
+/*change blur of pseudo element after hovering over showcase*/
+.showcase:hover::after {
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+}
+
+/* after hovering over showcase blur only content */
+.showcase:hover .content {
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+}
+
+.content {
+    /* remove the element from the document flow
+     with no padding and margins.
+     final position set by top, right, bottom, and left
+     It has no effect on other non-positioned elements
+     */
+    position: absolute;
+    /* 
+        The positioned elements one above other use z-index,
+        here there are two elements,
+        making z-index of content 1 brings it up
+    */
+    z-index: 1;
+    /* distance between top edge of element and top edge of
+    containing block
+     */
+    top: 10%;
+    left: 50%;
+    margin-top: 105px;
+    margin-left: -145px;
+    width: 300px;
+    height: 350px;
+    text-align: center;
+    transition: all 1000ms;
+}
+
+.content .logo {
+    height: 180px;
+    width: 180px;
+}
+
+.content .title {
+    font-size: 2.2rem;
+    color: #333;
+    margin-top: 1rem;
+
+}
+
+.content .text {
+    color: rgb(255, 251, 251);
+    font-weight: 700;
+    line-height: 1.7;
+    margin-top: 1rem;
+}
+
+
+.container {
+    max-width: 960px;
+    margin: auto;
+    overflow: hidden;
+    padding: 4rem 1rem;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+.center {
+    text-align: center;
+    margin: auto;
+}
+
+.bg-light {
+    background: #f4f4f4;
+    color: #333;
+}
+
+.bg-dark {
+    background: #333;
+    color: #f4f4f4;
+}
+
+footer {
+    padding: 2.2rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* small screens */
+@media (max-width:560px) {
+    .showcase::after {
+        height: 50vh;
+    }
+
+    .content {
+        top: 5%;
+        margin-top: 5px;
+    }
+
+    .content .logo {
+        height: 140px;
+        width: 140px;
+    }
+
+    .content .text {
+        display: none;
+    }
+
+    .grid-3,
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .services div {
+        border-bottom: #333 dashed 1px;
+        padding: 1.2rem 1rem;
+    }
+
+}
+
+/* landscape */
+@media (max-height: 500px) {
+
+    .content .title,
+    .content .text {
+        display: none;
+    }
+
+    .content {
+        top: 0%;
+    }
+
+}

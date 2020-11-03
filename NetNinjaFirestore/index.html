@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <link rel="text/css" href="style.css">
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
+    </head>
+    <body>
+
+        <h1>Cloud Cafe</h1>
+
+        <div class="content">
+
+            <form id="add-cafe-form"></form>
+
+            <ul id="cafe-list"></ul>
+
+        </div>
+        
+        <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyDngFeGB2NUJtBTRlx3hhSYcjNI55dH2F8",
+          authDomain: "netninjatutorial-e0a64.firebaseapp.com",
+          databaseURL: "https://netninjatutorial-e0a64.firebaseio.com",
+          projectId: "netninjatutorial-e0a64",
+          storageBucket: "netninjatutorial-e0a64.appspot.com",
+          messagingSenderId: "509192207281",
+          appId: "1:509192207281:web:ee2e814054c1df2fe4db90"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        // db.settings({ timestampsInSnapshots : true}); allows to take snapshots defaults to true in new versions
+        </script>
+        <script src="/main.js"></script>
+    </body>
+</html>

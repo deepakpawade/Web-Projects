@@ -1,0 +1,443 @@
+:root {
+    /*variables */
+    --primary-color: #e50914;
+    --dark-color: #141414;
+}
+
+* {
+    box-sizing: border-box;
+    /*so that padding doesn't affect width*/
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    /* webkit is the render engine used by safari and is supported by chrome and safari */
+    /* font-smooth:auto; */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /*Not sure if these properties are working or not*/
+    background: #000;
+    color: #999;
+}
+
+ul {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: #fff;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+p {
+    margin: 0.5rem 0;
+}
+
+img {
+    width: 100%;
+}
+
+.showcase {
+    width: 100%;
+    /* leave little bit of room at bottom */
+    height: 93vh;
+    /*viewport height : slice the height of window into 100 slices and metion how many slices you want the element to occupy*/
+    /* we have some elements absolute in showcase , so parent should be relative  */
+    /* To be able to position itself, it has to know which parent div it’s going to position itself relative to. */
+    position: relative;
+    background: url('https://i.ibb.co/vXqDmnh/background.jpg') no-repeat center center/cover;
+    /*????????????*/
+
+}
+
+
+.showcase::after {
+    /*places a pseudo element after the showcase and also acts like a child of showcase*/
+    content: 'DEADLYPEACE';
+    position: absolute;
+    /*relative will placed at last of parent element*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /*the higher , the closer */
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: inset 120px 100px 250px #000000, inset -120px -100px 250px #000000;
+    /*see MDN about inset , create a depression of element like shadow effect*/
+    /* the first part only assigns the shadow to x nad y from top left , the other part assigns the shadow to x and y from bottom right   */
+}
+
+.showcase-top {
+    z-index: 2;
+    position: relative;
+    height: 90px;
+}
+
+.showcase-top img {
+    width: 170px;
+    position: absolute;
+    top: 50%;
+    /*start the top edge from 50% of total height from parent's top edge*/
+    left: 50%;
+    /* since the image is positioned as per the edges without considering the length of img , it seems a bit aligned to the right of the parent than exact center */
+    transform: translate(-50%, -50%);
+    /*move the img backwards half of its length and height*/
+
+}
+
+.showcase-top a {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-50%, -50%);
+}
+
+.showcase-content {
+    z-index: 2;
+    position: relative;
+    /* margin: auto; */
+    display: flex;
+    /*align them horizontally */
+    flex-direction: column;
+    /**make'em vertically aligned*/
+    /* justify-content: center; */
+    align-items: center;
+    /* text-align: center; */
+    margin-top: 9rem;
+}
+
+.showcase-content p {
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 400;
+    font-size: 1.9rem;
+    line-height: 1.25;
+    margin-bottom: 2rem;
+}
+
+.showcase-content h1 {
+    font-weight: 700;
+    font-size: 5.2rem;
+    line-height: 1.1;
+    /*it's 1.1 em which refers to immediate parent rather than root. Else use 6 rem*/
+    margin-bottom: 2rem;
+}
+
+
+
+
+/* tabs */
+
+.tabs {
+    background: var(--dark-color);
+    padding-top: 1rem;
+    border-bottom: 3px solid #3d3d3d;
+}
+
+
+.tabs .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.tabs p {
+    font-size: 1.2rem;
+    padding-top: 0.5rem;
+
+}
+
+
+.tabs .container>div {
+    /* target the direct children of container and not the indirect children (like the children of it's children)(It doesn't matter in our case cuz there's no indirect divs)*/
+    padding: 1.5rem 0;
+}
+
+.tabs .container>div:hover {
+    color: white;
+    cursor: pointer;
+}
+
+
+.tab-border {
+    border-bottom: var(--primary-color) 4px solid;
+}
+
+
+/* tab content */
+.tab-content {
+    padding: 3rem 0;
+    background: #000;
+    color: #fff;
+}
+
+
+.show{
+    display: block !important;
+}
+/* hide contents initaially */
+#tab-1-content,#tab-2-content,#tab-3-content{
+    display: none;
+}
+
+
+/* #tab-1-content */
+.tab-1-content-inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* #tab-2-content */
+.tab-2-content-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab-2-content-bottom {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.table {
+    width: 100%;
+    margin-top: 2rem;
+    border-collapse: collapse;
+    /*The border-collapse CSS property sets whether cells inside a <table> have shared or separate borders.*/
+    border-spacing: 0;
+    /*spacing between borders of adjacent cells*/
+}
+
+.table thead th {
+    text-transform: uppercase;
+    padding: 0.8rem;
+}
+
+.table tbody tr td {
+    color: #999;
+    padding: 0.8rem 1.2rem;
+    text-align: center;
+}
+
+.table tbody tr td:first-child {
+    text-align: left;
+}
+
+.table tbody tr:nth-child(odd) {
+    background: #222;
+}
+
+
+/* footer */
+
+.footer {
+    max-width: 75%;
+    margin: 1rem auto;
+    overflow: auto;
+}
+
+.footer,
+.footer a {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.footer p {
+    margin-bottom: 1.5rem;
+}
+
+.footer .footer-cols {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    line-height: 1.9;
+}
+
+/* utilities which we'll be using repeateadly */
+.container {
+    max-width: 70%;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 2rem;
+}
+
+.text-xl {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.text-lg {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-dark {
+    color: #999;
+}
+
+.text-md {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.4rem 1.3rem;
+    font-size: 1rem;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    /*just in case we add buttons side by side*/
+    /* outline: none; outline is the dotted line around link when we press them. Dont 'none' it cuz we wont know what we're selection when using tabs to select elements instead of mouse*/
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.45);
+    border-radius: 2px;
+}
+.btn-icon{
+    margin-left: 1rem;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn-rounded {
+    border-radius: 5px;
+}
+
+.btn-xl {
+    font-size: 2rem;
+    padding: 1.5rem 2.1rem;
+    text-transform: uppercase;
+}
+
+.btn-lg {
+    font-size: 1rem;
+    padding: 0.8rem 1.3rem;
+    text-transform: uppercase;
+}
+
+/* media quries */
+@media(max-width:960px) {
+    .showcase {
+        height: 70vh;
+    }
+
+    .hide-sm {
+        display: none;
+    }
+
+    .showcase-top img {
+        top: 30%;
+        left: 5%;
+        transform: translate(0);
+    }
+
+    .showcase-content h1 {
+        font-size: 3.7rem;
+        line-height: 1;
+    }
+
+    .showcase-content p {
+        font-size: 1.5rem;
+    }
+
+    .footer .footer-cols {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .btn-xl {
+        font-size: 1.5rem;
+        padding: 1.4rem 2rem;
+        text-transform: uppercase;
+    }
+
+    .text-xl {
+        font-size: 1.5rem;
+    }
+
+    .text-lg {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+
+    .text-md {
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+}
+
+
+@media (max-width: 700px) {
+	.showcase::after {
+		background: rgba(0, 0, 0, 0.6);
+		box-shadow: inset 80px 80px 150px #000000, inset -80px -80px 150px #000000;
+	}
+
+	.showcase-content h1 {
+		font-size: 2.5rem;
+		line-height: 1;
+	}
+
+	.showcase-content p {
+		font-size: 1rem;
+	}
+
+	#tab-1-content .tab-1-content-inner {
+		grid-template-columns: 1fr;
+		text-align: center;
+	}
+
+	#tab-2-content .tab-2-content-top {
+		display: block;
+		text-align: center;
+	}
+
+	#tab-2-content .tab-2-content-bottom {
+		grid-template-columns: 1fr;
+	}
+
+	.btn-xl {
+		font-size: 1rem;
+		padding: 1.2rem 1.6rem;
+		text-transform: uppercase;
+	}
+}
+
+@media(max-height: 600px) {
+  .showcase-content {
+	margin-top: 3rem;
+}
+}

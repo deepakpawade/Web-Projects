@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body{
+            background-color: darkblue;            
+        }
+
+
+
+        header {
+            display: flex;
+            border-bottom: 1px #ccc solid;
+            justify-content: space-between;
+            background-color: rgba(141, 0, 235, 0.747);
+            align-items: center;
+        }
+
+        header .logo {
+            cursor: pointer;
+            font-family: cursive;
+            font-size: 2rem;
+            padding-left: 10px;
+            padding-bottom: 5px; 
+            font-weight: 500;
+            color: antiquewhite;
+        }
+
+        header .navigation {
+            flex-basis: 50%;
+            
+     }
+
+        header .navigation ul {
+            display: flex;
+            list-style: none;
+            justify-content: space-evenly;
+        }
+
+        header .navigation ul li{
+            cursor: pointer;
+            color: burlywood;
+        }
+
+        header .logo:hover, .navigation ul li:hover{
+            color:aquamarine;
+        }
+
+    
+    </style>
+    <title>PetStore Using Flexbox</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="#" alt="Logo">
+            Pet-Store
+        </div>
+        <div class="navigation">
+            <ul>
+                <li>Contact</li>
+                <li>Donate</li>
+                <li>Centers</li>
+            </ul>
+        </div>
+    </header>
+
+
+
+    <footer>
+
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+            
+        }
+
+        /* .bg {
+            z-index: 2;/*tp*/
+            /* position: absolute;
+            background: linear-gradient(0.30turn, #a63f4d, #244908, #75391d);
+            height: 100%;
+            width: 100%;
+        } */ 
+
+        html{
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(0.30turn, #a63f4d, #244908, #75391d);
+        }
+
+        body{
+            
+        }
+
+
+
+        .main .row {
+            margin-bottom: 4px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.25rem;
+            overflow: hidden;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .main .row td input {
+            width: 50px;
+            height: 50px;
+            background: wheat;
+            cursor: pointer;
+        }
+
+        .main .row td input:hover {
+            opacity: 0.8;
+        }
+
+        .text {
+            width: 213px;
+            margin-left: 2px;
+            height: 30px;
+            font-size: 20px;
+            margin-bottom: 5px;
+            background: rgb(7, 8, 8);
+            color: bisque;
+            padding: 0px 5px;
+        }
+
+        /* hello? waay?*/
+        .main {
+            z-index: 3;
+            /*tp*/
+            /* display: block; */
+            top: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="bg"></div> -->
+    <div class="main">
+
+
+        <input type="textview" class="text" name="text" id="myInput">
+        <table>
+            <tr class="row">
+                <td><input type="button" value="C" onclick="clr()"></td>
+                <td><input class="btn" type="button" value="<"></td>
+                <td><input class="btn" type="button" value="/"></td>
+                <td><input class="btn" type="button" value="x"></td>
+            </tr>
+            <tr class="row">
+                <td><input class="btn" type="button" value="7"></td>
+                <td><input class="btn" type="button" value="8"></td>
+                <td><input class="btn" type="button" value="9"></td>
+                <td><input class="btn" type="button" value="+"></td>
+            </tr>
+            <tr class="row">
+                <td><input class="btn" type="button" value="4"></td>
+                <td><input class="btn" type="button" value="5"></td>
+                <td><input class="btn" type="button" value="6"></td>
+                <td><input class="btn" type="button" value="-"></td>
+            </tr>
+            <tr class="row">
+                <td><input class="btn" type="button" value="1"></td>
+                <td><input class="btn" type="button" value="2"></td>
+                <td><input class="btn" type="button" value="3"></td>
+                <td><input type="button" value="=" onclick="equal()"></td>
+            </tr>
+        </table>
+
+    </div>
+    <script>
+        var butns = document.querySelectorAll('.btn');
+
+        function insert() {
+            document.getElementById("myInput").value = document.getElementById("myInput").value + this.value;
+        }
+        butns.forEach(item => item.addEventListener('click', insert));
+
+        function equal() {
+            document.getElementById("myInput").value = eval(document.getElementById("myInput").value);
+        }
+
+        function clr() {
+            document.getElementById("myInput").value = " ";
+        }
+    </script>
+</body>
+
+</html>

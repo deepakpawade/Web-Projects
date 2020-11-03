@@ -1,0 +1,106 @@
+* {
+    margin:0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    background-color: #222;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@font-face{
+    font-family: 'Genericons';
+    src: url('/genericons-regular-webfont.woff'),format('woff'),url('/genericons-regular-webfont.eot'),format('truetype');
+}
+    
+.container{
+    margin: 50px auto;
+    width: 90%;
+}
+
+header h1{
+    color: white;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.accordion{
+    height: 200px;
+    background: #333;
+    list-style-type: none; 
+    overflow: hidden;
+    width: 100%;
+    min-width: 800px;  /*to fit every thing when expanded*/
+    display: block;
+    /* font-size: 0px; */
+    margin: 0;
+}
+
+.tab{
+    display: inline-block;
+    background-color: #444;
+    border-right: #333 solid 1px;
+    width: 80px;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    margin: 0px;
+    transition: all 0.5s ease-in-out 0.1s;
+}
+
+.tab:hover{
+    width: 450px;
+}
+
+.tab .content{
+    background: white;
+    width: 360px;  
+    height: 200px;
+    margin-left: 80px; 
+    position: relative;
+    padding: 50px 0 0 15px;
+
+}
+
+.tab .content h1{
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.tab .content p{
+    font-size: 0.85rem;
+    line-height: 1.4rem;
+    padding-right: 30px;
+}
+
+.social a::after {
+    font: 48px;
+    padding-left: 20px;
+    padding-top: 80px;
+    margin-left: 85px;
+}
+
+/* add icon */
+
+.social a:before,
+.social a::after {
+    width: 80px;
+    height: 200px;
+    position: absolute;
+    text-indent: 0;
+    padding-top: 90px;
+    padding-left: 25px;
+    display: block;
+    font: normal 30px Genericons;
+}
+.youtube a:before,
+.youtube a:after{
+    content: '\f213';
+}
+
+.youtube a:after {
+    background-color: red;
+}
+
+

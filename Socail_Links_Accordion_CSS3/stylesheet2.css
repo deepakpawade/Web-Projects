@@ -1,0 +1,106 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    border: 0;
+}
+
+body{
+    background: #222;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container header h1{
+    text-align: center;
+    color:white;
+}
+
+.accordion {
+    display: block;
+    background-color: #333;
+    list-style-type: none;
+    width: 90%;
+    margin: 20px auto;
+    height: 200px;
+    min-width: 800px;
+    overflow: hidden;
+    font-size: 0px;
+}
+
+.tab{
+    display: inline-block;
+    overflow: hidden;
+    border-right: solid 1px;
+    height: 200px;
+    width: 80px;
+    transition: all 0.5s ease-in-out 0.1s ;
+    position: relative;
+
+}
+
+.tab:hover{
+    width: 340px;
+}
+
+.tab .content{
+    background-color: wheat;
+    height: 180px;
+    margin-left: 80px;
+    padding: 50px 0px;
+    width: 260px;
+}
+
+.tab .content h1{
+    padding-bottom: 5px;
+    margin-left: 10px;
+    font-size: 2.5rem;
+}
+
+.tab .content p{
+    margin-left: 5px;
+    font-size: 1rem;
+}
+
+
+.tab:hover .social a:before{
+    margin-left: -100px;
+}
+
+.tab:hover .social a:after{
+    margin-left: -5px;
+}
+
+.social a::before,.social a::after{
+    transition: all 0.4s ease-in-out 0.1s;
+    width: 54px;
+    height: 125px;
+    position: absolute;
+    /* text-indent: 0; */
+    padding-top: 50px ;
+    padding-left: 30px;
+    display: block;
+    font: normal 30px;
+    color:white;
+    font-size: 5px;
+    
+}
+
+.social a:after{
+    font-size: 25px;
+    /* padding-left: 20px; */
+    padding-top: 90px;
+    margin-left: 80px;
+}
+.youtube a:before,.youtube a:after{
+    /* display:inline-block;
+    height:25px;
+    width:25px;
+    margin-right: 5px; */
+    content: "??";
+    /* background:url(ytbnw.png) no-repeat 0 0;
+    background-size: 25px 25px; */
+}
+
+.youtube a::after{
+    background-color: red;
+}
+
